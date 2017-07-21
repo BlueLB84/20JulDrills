@@ -24,12 +24,13 @@ $('button[type=submit]').click(function(event){
     $('.js-shopping-list-entry').val('');
 });
 
-$('.shopping-item-toggle').click(function(event){
+$('.shopping-list').on('click','.shopping-item-toggle', function(event){
     $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked')
-})
+});
 
-$('.shopping-item-delete').click(function(event){
+$('.shopping-list').on('click','.shopping-item-delete', function(event){
     $(this).parents('li').remove();
-})
+});
+
 
 });
