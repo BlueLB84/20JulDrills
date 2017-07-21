@@ -1,13 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shopping List</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-$(function(){
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
 
-$('button[type=submit]').click(function(event){
-    event.preventDefault();
-    let shoppingItem = '';
-    let enteredItem = $('.js-shopping-list-entry').val();
-    let template = (`<li>
-        <span class="shopping-item">${enteredItem}</span>
+  <div class="container">
+    <h1>Shopping List</h1>
+
+    <form id="js-shopping-list-form">
+      <label for="shopping-list-entry">Add an item</label>
+      <input type="text" name="shopping-list-entry" class="js-shopping-list-entry" placeholder="e.g., broccoli">
+      <button type="submit">Add item</button>
+    </form>
+
+    <ul class="shopping-list">
+      <li>
+        <span class="shopping-item">apples</span>
         <div class="shopping-item-controls">
           <button class="shopping-item-toggle">
             <span class="button-label">check</span>
@@ -16,21 +30,44 @@ $('button[type=submit]').click(function(event){
             <span class="button-label">delete</span>
           </button>
         </div>
-      </li>`);
-    
-    shoppingItem += template;
-
-    $('.shopping-list').append(shoppingItem);
-    $('.js-shopping-list-entry').val('');
-});
-
-$('.shopping-list').on('click','.shopping-item-toggle', function(event){
-    $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked')
-});
-
-$('.shopping-list').on('click','.shopping-item-delete', function(event){
-    $(this).parents('li').remove();
-});
-
-
-});
+      </li>
+      <li>
+        <span class="shopping-item">oranges</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+      </li>
+      <li>
+        <span class="shopping-item shopping-item__checked">milk</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+      </li>
+      <li>
+        <span class="shopping-item">bread</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- resend this to github  -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
